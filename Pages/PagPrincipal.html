@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imagenes/Logo Qr Assistance vacio.JPG" type="image/x-icon">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>QR Assistance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <!--Librerías necesarias de Js para bootstrap-->
+</head>
+
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div>
+                <a href="#" class="titleprincipal" style="text-decoration:none">QR ASSISTANCE</a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><button class="btn_submit1" style="width:auto;"><a href="PagPrincipal.html"
+                                style="text-decoration:none">Página de
+                                inicio</a></button></li>
+                    <li><button class="btn_submit1" onclick="MostrarElemento();" style="width:auto;">Sobre
+                            nosotros</button></li>
+                    <li><button class="btn_submit1" onclick="MostrarElemento2();" style="width:auto;">Contacto</button>
+                    </li>
+                    <li><button class="btn_submit1" onclick="MostrarElemento1();" style="width:auto;">Iniciar sesión o
+                            registrarse</button></li>
+                </ul>
+            </nav>
+        </div>
+        <div id='contacto' class='info_page'>
+            <div class="form_box2">
+                <p class="parag2">
+                    <img src="../imagenes/LuisAmigo1.jpg" class="img_box2"><br>
+                    Universidad Católica Luis Amigó<br>
+                    Tv. 51a ##67B 90, Medellín, Antioquia
+                </p>
+                <p>
+                <p class="parag3">
+                    <br><br><br>
+                    Saray Mejía Medina<br>
+                    saray.mejiame@amigo.edu.co<br>
+                    +57 (300) 416-5409
+                </p>
+                <p class="parag3">
+                    <br><br><br>
+                    Maria Isabel Bohorquez Mejía<br>
+                    maria.bohorquezme@amigo.edu.co <br>
+                    +57 (323) 500-8608
+                </p>
+            </div>
+            </p>
+        </div>
+        <div id='info_pagina' class='info_page'>
+            <div class="form_box1">
+                <p class="parag">
+                    <img src="../imagenes/Logo QR Assistance.jpg" class="img_box1"><br><br>
+                    QR Assistance es una aplicación web que busca la optimización del proceso de toma de asistencia
+                    estudiantil en clase, llevada a cabo por dos estudiantes de Ingeniería de sistemas de séptimo
+                    semestre (2022-1) de la Universidad Católica Luis Amigó sede Medellín y fue realizado para el curso
+                    de ‘Ingeniería de Software’.
+                </p>
+            </div>
+        </div>
+        <div id='login-form' class='login-page'>
+            <div class="form_box">
+                <div class='button_box'>
+                    <div id='btn'></div>
+                    <button type="button" onclick="login()" class='toogle-btn'>Iniciar sesión</button>
+                    <button type="button" onclick="RegistroEstudiante()" class='toogle-btn'>Registro estudiante</button>
+                    <button type="button" onclick="RegistroDocente()" class='toogle-btn'>Registro docente</button>
+                </div>
+                <form id="login" class="input-group-login" action="DB/ingreso.php" method="post">
+                    <div class="grupo" id="grupo_Correo">
+                        <div class="formulario_grupo_input">
+                            <input type="email" class="formulario__input" name="Correo" id="Correo"><span
+                                class="barra"></span>
+                            <!-- Agregamos icono: -->
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Correo" class="formulario__label">Correo institucional</label>
+                        </div>
+                        <p class="formulario__input-error">El correo solo puede contener letras, números, puntos,
+                            guiones y guion bajo.</p>
+                    </div>
+                    <div class="grupo" id="grupo_contraseña">
+                        <div class="formulario_grupo_input">
+                            <input type="password" class="formulario__input" name="Contraseña" id="Contraseña"><span
+                                class="barra"></span>
+                            <!-- Agregamos icono: -->
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Contraseña" class="formulario__label">Contraseña</label>
+                        </div>
+                        <p class="formulario__input-error">La contraseña debe ser de 4 a 12 dígitos.</p>
+                    </div>
+                    <div class="mensaje" id="formulario__mensaje_login">
+                        <p class="formulario__mensaje"><i class="fas fa-exclamation-triangle"></i><b>Error: </b>Todos los campos son obligatorios</p>
+                    </div>
+                    <div class="mensaje" id="mensaje_no_autenticado">
+                        <p class="formulario__mensaje"><i class="fas fa-exclamation-triangle"></i><b>Error: </b>Usuario no registrado</p>
+                    </div>
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <br><button type='submit' class='submit_btn'>Ingresar</button>
+                    </div>
+                </form>
+                <form id="RegistroEstudiante" class='input-group-register'>
+                    <div class="grupo" id="grupo_PrimerNombre_Estudiante">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="PrimerNombre_Estudiante" id="PrimerNombre_Estudiante"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="PrimerNombre_Estudiante" class="formulario__label">Primer nombre</label>
+                        </div>
+                        <p class="formulario__input-error">El nombre tiene que ser de 3 a 16 dígitos y solo puede
+                            contener letras</p>
+                    </div>
+                    <div class="grupo" id="grupo_SegundoNombre_Estudiante">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="SegundoNombre_Estudiante" id="SegundoNombre_Estudiante"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="SegundoNombre_Estudiante" class="formulario__label">Segundo nombre</label>
+                        </div>
+                        <p class="formulario__input-error">El nombre tiene que ser de 3 a 16 dígitos y solo puede
+                            contener letras y espacios</p>
+                    </div>
+                    <div class="grupo" id="grupo_PrimerApellido_Estudiante">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="PrimerApellido_Estudiante" id="PrimerApellido_Estudiante"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="PrimerApellido_Estudiante" class="formulario__label">Primer apellido</label>
+                        </div>
+                        <p class="formulario__input-error">El apellido tiene que ser de 3 a 12 dígitos y sólo puede
+                            contener letras</p>
+                    </div>
+                    <div class="grupo" id="grupo_SegundoApellido_Estudiante">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="SegundoApellido_Estudiante" id="SegundoApellido_Estudiante"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="SegundoApellido_Estudiante" class="formulario__label">Segundo apellido</label>
+                        </div>
+                        <p class="formulario__input-error">El apellido tiene que ser de 3 a 12 dígitos y sólo puede
+                            contener letras y espacios</p>
+                    </div>
+                    <div class="grupo" id="grupo_ID_Estudiante">
+                        <div class="formulario_grupo_input">
+                            <input type="number" class="formulario__input" name="ID_Estudiante" id="ID_Estudiante"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="ID_Estudiante" class="formulario__label">Número de identificación</label>
+                        </div>
+                        <p class="formulario__input-error">El número de identificación tiene que ser de 5 a 10 dígitos y
+                            sólo debe contener números</p>
+                    </div>
+                    <div class="grupo" id="grupo_Programa_Estudiante">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="Programa_Estudiante" id="Programa_Estudiante"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Programa_Estudiante" class="formulario__label">Programa estudiante</label>
+                        </div>
+                        <p class="formulario__input-error">El Programa Académico tiene que ser de 6 a 25 dígitos y sólo
+                            debe contener letras y espacios</p>
+                    </div>
+                    <div class="grupo" id="grupo_Correo_Estudiante">
+                        <div class="formulario_grupo_input">
+                            <input type="email" class="formulario__input" name="Correo_Estudiante" id="Correo_Estudiante"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Correo_Estudiante" class="formulario__label">Correo institucional</label>
+                        </div>
+                        <p class="formulario__input-error">El correo solo puede contener letras, números, puntos,
+                            guiones y guion bajo.</p>
+                    </div>
+                    <div class="grupo" id="grupo_Contraseña_Estudiante">
+                        <div class="formulario_grupo_input">
+                            <input type="password" class="formulario__input" name="Contraseña_Estudiante" id="Contraseña_Estudiante"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Contraseña_Estudiante" class="formulario__label">Nueva contraseña</label>
+                        </div>
+                        <p class="formulario__input-error">La contraseña debe ser de 4 a 12 dígitos.</p>
+                    </div>
+                    <div class="grupo" id="grupo_Contraseña1_Estudiante">
+                        <div class="formulario_grupo_input">
+                            <input type="password" class="formulario__input" name="Contraseña1_Estudiante" id="Contraseña1_Estudiante"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Contraseña1_Estudiante" class="formulario__label">Repita su contraseña</label>
+                        </div>
+                        <p class="formulario__input-error">Las contraseñas no coinciden</p>
+                    </div>
+                    <div class="formulario__mensaje" id="formulario__mensaje">
+                        <p><i class="fas fa-exclamation-triangle"></i><b>Error: </b>Por favor rellena los campos
+                            correctamente</p>
+                    </div>
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario de registro enviado exitosamente!</p>
+                        <br><button type='submit' class='submit_btn'>Registrar</button>
+                    </div>
+                </form>
+                <form id="RegistroDocente" class='input-group-register1'>
+                    <div class="grupo" id="grupo_PrimerNombre_Docente">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="PrimerNombre_Docente" id="PrimerNombre_Docente"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="PrimerNombre_Docente" class="formulario__label">Primer nombre</label>
+                        </div>
+                        <p class="formulario__input-error">El nombre tiene que ser de 3 a 16 dígitos y solo puede
+                            contener letras</p>
+                    </div>
+                    <div class="grupo" id="grupo_SegundoNombre_Docente">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="SegundoNombre_Docente" id="SegundoNombre_Docente"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="SegundoNombre_Docente" class="formulario__label">Segundo nombre</label>
+                        </div>
+                        <p class="formulario__input-error">El nombre tiene que ser de 3 a 16 dígitos y solo puede
+                            contener letras y espacios</p>
+                    </div>
+                    <div class="grupo" id="grupo_PrimerApellido_Docente">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="PrimerApellido_Docente" id="PrimerApellido_Docente"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="PrimerApellido_Docente" class="formulario__label">Primer apellido</label>
+                        </div>
+                        <p class="formulario__input-error">El apellido tiene que ser de 3 a 12 dígitos y sólo puede
+                            contener letras</p>
+                    </div>
+                    <div class="grupo" id="grupo_SegundoApellido_Docente">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="SegundoApellido_Docente" id="SegundoApellido_Docente"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="SegundoApellido_Docente" class="formulario__label">Segundo apellido</label>
+                        </div>
+                        <p class="formulario__input-error">El apellido tiene que ser de 3 a 12 dígitos y sólo puede
+                            contener letras y espacios</p>
+                    </div>
+                    <div class="grupo" id="grupo_ID_Docente">
+                        <div class="formulario_grupo_input">
+                            <input type="number" class="formulario__input" name="ID_Docente" id="ID_Docente"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="ID_Docente" class="formulario__label">Número de identificación</label>
+                        </div>
+                        <p class="formulario__input-error">El número de identificación tiene que ser de 5 a 10 dígitos y
+                            sólo debe contener números</p>
+                    </div>
+                    <div class="grupo" id="grupo_Asignaturas_Docente">
+                        <div class="formulario_grupo_input">
+                            <input type="text" class="formulario__input" name="Asignaturas_Docente" id="Asignaturas_Docente"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Asignaturas_Docente" class="formulario__label">Asignaturas dictadas:</label>
+                        </div>
+                        <p class="formulario__input-error">El campo asignatiras tiene que ser mínimo de 6 digitos y sólo
+                            debe contener letras, comas y espacios</p>
+                    </div>
+                    <div class="grupo" id="grupo_Correo_Docente">
+                        <div class="formulario_grupo_input">
+                            <input type="email" class="formulario__input" name="Correo_Docente" id="Correo_Docente"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Correo_Docente" class="formulario__label">Correo institucional</label>
+                        </div>
+                        <p class="formulario__input-error">El correo solo puede contener letras, números, puntos,
+                            guiones y guion bajo.</p>
+                    </div>
+                    <div class="grupo" id="grupo_Contraseña_Docente">
+                        <div class="formulario_grupo_input">
+                            <input type="password" class="formulario__input" name="Contraseña_Docente" id="Contraseña_Docente"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Contraseña_Docente" class="formulario__label">Nueva contraseña</label>
+                        </div>
+                        <p class="formulario__input-error">La contraseña debe ser de 4 a 12 dígitos.</p>
+                    </div>
+                    <div class="grupo" id="grupo_Contraseña1_Docente">
+                        <div class="formulario_grupo_input">
+                            <input type="password" class="formulario__input" name="Contraseña1_Docente" id="Contraseña1_Docente"><span class="barra"></span>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <label for="Contraseña1_Docente" class="formulario__label">Repita su contraseña</label>
+                        </div>
+                        <p class="formulario__input-error">Las contraseñas no coinciden</p>
+                    </div>
+                    <div class="mensaje" id="formulario__mensaje_Doc">
+                        <p class="formulario__mensaje"><i class="fas fa-exclamation-triangle"></i><b>Error: </b>Por favor rellena los campos
+                            correctamente</p>
+                    </div>
+                    <div class="formulario__grupo formulario__grupo-btn-enviar" id="formulario__mensaje-exito_Doc">
+                        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                        <br><button type='submit' class='submit_btn'>Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        var x = document.getElementById('login');
+        var y = document.getElementById('RegistroEstudiante');
+        var z = document.getElementById('RegistroDocente');
+        var w = document.getElementById('btn');
+        function RegistroEstudiante() {
+            x.style.left = '-450px';
+            z.style.left = '450px';
+            y.style.left = '50px'
+            w.style.left = '125px'
+        }
+        function RegistroDocente() {
+            x.style.left = '-450px';
+            y.style.left = '-450px';
+            z.style.left = '50px'
+            w.style.left = '252px'
+        }
+        function login() {
+            x.style.left = '50px';
+            y.style.left = '450px';
+            z.style.left = '450px'
+            w.style.left = '0px'
+        }   
+    </script>
+    <script>
+            var modal = document.getElementById('info_pagina');
+            var modal1 = document.getElementById('login-form');
+            var modal2 = document.getElementById('contacto');
+
+            function MostrarElemento1() {
+                modal1.style.display = "block";
+                modal.style.display = "none";
+                modal2.style.display = "none";
+            }
+
+        function MostrarElemento() {
+            modal.style.display = "block";
+            modal1.style.display = "none";
+            modal2.style.display = "none";
+        }
+
+        function MostrarElemento2() {
+            modal.style.display = "none";
+            modal1.style.display = "none";
+            modal2.style.display = "block";
+        }
+    </script>
+    <script src="../JS/validacion.js"></script>
+    <!-- Enlace a los iconos: -->
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
